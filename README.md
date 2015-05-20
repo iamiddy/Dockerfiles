@@ -1,7 +1,7 @@
 # Dockerfiles
 Dockerfiles repo
 
-## Data Volume Containers
+### Data Volume Containers
 
 -- If you have some persistent data that you want to share between containers, or want to use from non-persistent containers, it's best to create a named Data Volume Container, and then to mount the data from it.
 
@@ -50,7 +50,7 @@ docker run --volumes-from dbdata busybox ls -al /data/db
 Workarounds
 Note: The following steps are meant as a temporary solution and won't be needed anymore in the future.
 
-## Port forwarding
+### Port forwarding
 
 Let's say your Docker container exposes the port 8000 and you want access it from your other computers on your LAN. You can do it temporarily, using ssh:
 
@@ -72,10 +72,10 @@ First of all the credit must be given to the person who has this covered already
 Step 1. Create volume only docker container named as testdata.
 
 
-1 docker run -v /test/data --name testdata busybox true
+1 <tt> docker run -v /test/data --name testdata busybox true </tt>
 Step 2. Copy the folder named as sample from current host directory to volume container.
 
-1 tar -c sample/ | docker run -i --rm -w /test/data --volumes-from testdata busybox tar -xv
+1 <tt> tar -c sample/ | docker run -i --rm -w /test/data --volumes-from testdata busybox tar -xv </tt>
  
  The tar command  pipes the content of sample folder into the docker volume container directory [/test/data].
 You can use the ls command like we did earlier change the mongodata to testdata and [/data/db] to [/test/data]
