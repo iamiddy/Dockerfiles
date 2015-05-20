@@ -1,7 +1,7 @@
 # Dockerfiles
 Dockerfiles repo
 
-Data Volume Containers
+## Data Volume Containers
 
 -- If you have some persistent data that you want to share between containers, or want to use from non-persistent containers, it's best to create a named Data Volume Container, and then to mount the data from it.
 
@@ -23,7 +23,7 @@ You can use multiple --volumes-from parameters to bring together multiple data v
 
 If you remove containers that mount volumes, including the initial dbdata container, or the subsequent containers db1 and db2, the volumes will not be deleted. To delete the volume from disk, you must explicitly call docker rm -v against the last container with a reference to the volume. This allows you to upgrade, or effectively migrate data volumes between containers.
 
-Backup, restore, or migrate data volumes
+##Backup, restore, or migrate data volumes
 
 ---- Another useful function we can perform with volumes is use them for backups, restores or migrations. We do this by using the --volumes-from flag to create a new container that mounts that volume, like so:
 
@@ -50,7 +50,7 @@ docker run --volumes-from dbdata busybox ls -al /data/db
 Workarounds
 Note: The following steps are meant as a temporary solution and won't be needed anymore in the future.
 
-Port forwarding
+## Port forwarding
 
 Let's say your Docker container exposes the port 8000 and you want access it from your other computers on your LAN. You can do it temporarily, using ssh:
 
@@ -82,7 +82,7 @@ You can use the ls command like we did earlier change the mongodata to testdata 
 All the contents from sample directory copied will be listed.
 
 
-Mongo data container -- dbdata
+## Mongo data container -- dbdata
 mongo image mongo 2.6.10
 create mongo db container
 sudo docker run -i -t -p 27027:27017 -p 28027:28017 --name mongodb  --volume-from dbdata mongo
