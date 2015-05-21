@@ -89,6 +89,7 @@ create mongo db container <br/>
 
 ###### Take dump and restore in datadb
 <tt>
-$ mongodump -d imefana -o dump_05_20_2015 <br/>
+$ mongodump -d imefana -o dump_05_20_2015 </tt><br/>
+<tt>
 $ mongorestore --host 192.168.59.103 --port 27027 dump_05_20_2015 
 </tt>
