@@ -86,3 +86,9 @@ All the contents from sample directory copied will be listed.
 mongo image mongo 2.6.10 <br/>
 create mongo db container <br/>
 <tt>sudo docker run -i -t -p 27027:27017 -p 28027:28017 --name mongodb  --volume-from dbdata mongo </tt>
+
+######## Take dump and restore in datadb
+<tt>
+$ mongodump -d imefana -o dump_05_20_2015
+$ mongorestore --host 192.168.59.103 --port 27027 dump_05_20_2015
+</tt>
