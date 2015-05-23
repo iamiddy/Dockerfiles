@@ -93,3 +93,8 @@ $ mongodump -d imefana -o dump_05_20_2015 </tt><br/>
 <tt>
 $ mongorestore --host 192.168.59.103 --port 27027 dump_05_20_2015 
 </tt>
+
+Data Volume container
+<tt>— docker create -v /data/db --name dbdata iamiddy/busybox /bin/true</tt>
+<tt>docker run -d -p 8000:8080 --name AppDockerContainer -e db.host.name=EC2-HOSTING-MONGO-CONTAINER -e db.host.port=DB-HOST-PORT DockerImage </tt>run emefana spring boot app 
+<tt>docker run -d -p 27027:27017 -p 28027:28017 --name mongodb  --volumes-from dbdata iamiddy/mongodb</tt> docker container running mongo container 
