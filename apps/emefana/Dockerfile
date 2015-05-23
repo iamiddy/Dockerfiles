@@ -1,6 +1,6 @@
 
 #EMEFANA Service
-FROM iamiddy/jdk8
+FROM iamiddy/jre:8
 MAINTAINER <iddyiam@gmail.com> Iddy Magohe
 
 ADD emefana_service /opt/emefana_service
